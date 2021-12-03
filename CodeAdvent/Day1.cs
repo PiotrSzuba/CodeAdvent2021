@@ -8,8 +8,8 @@ namespace CodeAdvent2021
 {
     public class Day1
     {
-        public int Larger { get; set; } = 0;
-        public List<int>? Data { get; set; } = null;
+        private int _larger { get; set; } = 0;
+        private List<int>? _data { get; set; } = null;
 
         public Day1(List<int> data) 
         {
@@ -19,35 +19,35 @@ namespace CodeAdvent2021
                 return;
             }
 
-            Data = data;
+            _data = data;
         }
 
         public int PartA()
         {
-            Larger = 0;
-            for (int i = 0; i < Data!.Count - 1; i++)
+            _larger = 0;
+            for (int i = 0; i < _data!.Count - 1; i++)
             {
-                if (Data[i + 1] > Data[i])
+                if (_data[i + 1] > _data[i])
                 {
-                    Larger++;
+                    _larger++;
                 }
             }
 
-            return Larger;
+            return _larger;
         }
 
         public int PartB()
         {
-            Larger = 0;
-            for (int i = 3; i < Data!.Count; i++)
+            _larger = 0;
+            for (int i = 3; i < _data!.Count; i++)
             {
-                if(Data[i - 3] + Data[i - 2] + Data[i-1] < Data[i] + Data[i - 1] + Data[i-2])
+                if(_data[i - 3] + _data[i - 2] + _data[i-1] < _data[i] + _data[i - 1] + _data[i-2])
                 {
-                    Larger++;
+                    _larger++;
                 }
             }
 
-            return Larger;
+            return _larger;
         }
     }
 }

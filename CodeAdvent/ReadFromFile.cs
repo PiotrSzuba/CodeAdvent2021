@@ -16,7 +16,7 @@ namespace CodeAdvent2021
 {
     public class ReadFromFile
     {
-        public List<string>? Data { get; set; } = null;
+        public List<string>? _data { get; set; } = null;
         public ReadFromFile() { }
         private void Read(string path)
         {
@@ -24,8 +24,8 @@ namespace CodeAdvent2021
             try
             {
                 lines = File.ReadAllLines(path);
-                Data = new List<string>();
-                Data = lines.ToList();
+                _data = new List<string>();
+                _data = lines.ToList();
             }
             catch (Exception)
             {
@@ -36,7 +36,7 @@ namespace CodeAdvent2021
         {
             Read(path);
             List<int> DataAsInts = new List<int>();
-            foreach (string line in Data!)
+            foreach (string line in _data!)
             {
                 DataAsInts.Add(Int32.Parse(line));
             }
@@ -45,7 +45,7 @@ namespace CodeAdvent2021
         public List<string> GetStrings(string path)
         {
             Read(path);
-            return Data!;
+            return _data!;
         }
 
         public List<Tuple<string,int>> GetTuple(string path)
@@ -54,7 +54,7 @@ namespace CodeAdvent2021
             string temp = "";
             int value = 0;
             Read(path);
-            foreach (var line in Data!)
+            foreach (var line in _data!)
             {
                 temp = new(line.Where(Char.IsDigit).ToArray());
                 value = Int32.Parse(temp);

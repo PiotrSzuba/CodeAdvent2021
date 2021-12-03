@@ -8,10 +8,10 @@ namespace CodeAdvent2021
 {
     public class Day3
     {
-        public List<string>? _Data { get; set; } = null;
+        public List<string>? _data { get; set; } = null;
         public Day3(List<string> data)
         {
-            _Data = data;
+            _data = data;
 
         }
 
@@ -43,7 +43,7 @@ namespace CodeAdvent2021
 
             string[] data = new string[12];
 
-            foreach(var x in _Data!)
+            foreach(var x in _data!)
             {
                 for(int i = 0; i < x.Count(); i++)
                 {
@@ -65,10 +65,10 @@ namespace CodeAdvent2021
 
         private int PartBWrapper(bool one)
         {
-            int currentSize = _Data!.Count();
-            int rowSize = _Data![0].Count();
+            int currentSize = _data!.Count();
+            int rowSize = _data![0].Count();
             var currentData = new List<string>();
-            currentData = _Data;
+            currentData = _data;
             string strResult = "";
             int charValue = 0;
             for (int i = 0; i < rowSize; i++)

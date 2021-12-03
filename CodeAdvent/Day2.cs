@@ -8,14 +8,10 @@ namespace CodeAdvent2021
 {
     public class Day2
     {
-        private int Depth { get; set; } = 0;
-        private int Horizontal { get; set; } = 0;
-
-        private int Aim { get; set; } = 0;
-
-        private List<Tuple<string, int>> Data = new List<Tuple<string, int>>();
-        private List<string>? Commands { get; set; } = null;
-        private List<int>? Values { get; set; } = null;
+        private int _depth { get; set; } = 0;
+        private int _horizontal { get; set; } = 0;
+        private int _aim { get; set; } = 0;
+        private List<Tuple<string, int>> _data = new List<Tuple<string, int>>();
         public Day2(List<Tuple<string,int>> data )
         {
             if (data == null)
@@ -23,57 +19,55 @@ namespace CodeAdvent2021
                 Console.WriteLine("Data is null");
                 return;
             }
-
-            Data = data;
+            _data = data;
         }
 
         public int PartA()
         {
-            Horizontal = 0;
-            Depth = 0;
-            foreach (var x in Data)
+            _horizontal = 0;
+            _depth = 0;
+            foreach (var x in _data)
             {
                 if(x.Item1.Equals("forward"))
                 {
-                    Horizontal += x.Item2;
+                    _horizontal += x.Item2;
                 }
                 else if(x.Item1.Equals("up"))
                 {
-                    Depth -= x.Item2;
+                    _depth -= x.Item2;
                 }
                 else if(x.Item1.Equals("down"))
                 {
-                    Depth += x.Item2;
+                    _depth += x.Item2;
                 }
             }
 
-            return Depth * Horizontal;
+            return _depth * _horizontal;
         }
 
         public int PartB()
         {
-            Horizontal = 0;
-            Depth = 0;
-            Aim = 0;
-            foreach (var x in Data)
+            _horizontal = 0;
+            _depth = 0;
+            _aim = 0;
+            foreach (var x in _data)
             {
                 if (x.Item1.Equals("forward"))
                 {
-                    Horizontal += x.Item2;
-                    int temp = x.Item2 * Aim;
-                    Depth += temp;
+                    _horizontal += x.Item2;
+                    _depth += (x.Item2 * _aim);
                 }
                 else if (x.Item1.Equals("up"))
                 {
-                    Aim -= x.Item2;
+                    _aim -= x.Item2;
                 }
                 else if (x.Item1.Equals("down"))
                 {
-                    Aim += x.Item2;
+                    _aim += x.Item2;
                 }
             }
 
-            return Depth * Horizontal;
+            return _depth * _horizontal;
         }
     }
 }
