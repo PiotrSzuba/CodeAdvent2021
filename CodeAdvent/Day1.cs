@@ -4,37 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// Opis dzialania: 
-/// 
-/// W tym zadaniu chodzilo o zwykle znalezienie zasiegu dzialania petli
-/// Znaki ? oraz ! beda sie powatarzac w nastepnych rozwiazaniach
-/// Znak ? - daje znac ze wartosc moze byc nullem
-/// Znak ! - daje znac ze nie ma mozliwosci aby wartosc byla nullem
-/// znak ! wystarczy dac na poczatku metody i starcza mozna tez nie dawac
-/// ale beda ostrzerzenia ktore brzydko wygladaja w ide
-/// 
-/// Czesc pierwsza polegala na znalezieniu czy wartosc nastepna jest wieksza od poprzedniej
-/// Tak wiec zasieg petli to:
-/// start = 0 -> data.size-1 
-/// lub 
-/// start = 1 -> data.size
-/// 
-/// Druga czesc polegala na sumowaniu grup po 3 
-/// A
-/// AB
-/// ABC
-///  BCD I tak dalej
-///  Z tego wynika że dla kazdej litery byly dwa elementy wspolne
-///  oraz dwa elementy nie wspolne
-///  Oznacza to że ilosc elementow w jednym rowaniu to 4
-///  tak wiec zasieg petli to:
-///  start = 3 -> data.size
-///  lub
-///  start = 0 -> data.size-4
-///  (0,1,2,3).size = 4
-/// </summary>
-
 namespace CodeAdvent2021
 {
     public class Day1

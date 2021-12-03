@@ -4,12 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// W tym dniu glowne problemy mogly wynikac z uzymanego jezyka
-/// trzeba bylo wyciagnac z jednej linii stringa oraz inta 
-/// W tym przypadku nie bylo to trudne dzieki funkcjom C#
-/// </summary>
-
 namespace CodeAdvent2021
 {
     public class Day2
