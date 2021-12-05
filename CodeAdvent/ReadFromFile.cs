@@ -9,11 +9,7 @@ namespace CodeAdvent2021
 {
     public class ReadFromFile
     {
-        public ReadFromFile() { }
-        public static List<string> Read(string path)
-        {
-            return File.ReadAllText(path).Split('\n').ToList();
-        }
+        public static List<string> Read(string path) => File.ReadAllText(path).Split('\n').ToList();
 
     }
 }
