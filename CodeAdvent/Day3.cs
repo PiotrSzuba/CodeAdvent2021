@@ -50,11 +50,8 @@ namespace CodeAdvent2021
                 }
             }
 
-            foreach (var x in data)
-            {
-                gamma += GetMost(x);
-                epsilon += GetLeast(x);
-            }
+            data.ToList().ForEach(x => gamma += GetMost(x));
+            data.ToList().ForEach(x => epsilon += GetLeast(x));
 
             int _epsilon = Convert.ToInt32(epsilon,2);
             int _gamma = Convert.ToInt32(gamma, 2);
@@ -64,29 +61,23 @@ namespace CodeAdvent2021
 
         private int PartBWrapper(bool one)
         {
-            int currentSize = _data!.Count();
             int rowSize = _data![0].Count();
-            var currentData = new List<string>();
-            currentData = _data;
+            var currentData = _data;
             string strResult = "";
             int charValue = 0;
             for (int i = 0; i < rowSize; i++)
             {
                 charValue = 0;
-                foreach (var x in currentData)
-                {   
-                    var temp = x[i];
-                    charValue += int.Parse(temp.ToString());
-                }
-                currentSize = currentData.Count();
+                currentData.ForEach(x => charValue += int.Parse(x[i].ToString()));
+
                 char searchArgument = ' ';
                 if(one)
                 {
-                    searchArgument = currentSize - (2 * charValue) <= 0 ? '0' : '1';
+                    searchArgument = currentData.Count() - (2 * charValue) <= 0 ? '0' : '1';
                 }
                 else
                 {
-                    searchArgument = currentSize - (2 * charValue) <= 0 ? '1' : '0';
+                    searchArgument = currentData.Count() - (2 * charValue) <= 0 ? '1' : '0';
                 }
 
                 var tempData = (from x in currentData where x[i].Equals(searchArgument) select x).ToList();
