@@ -142,10 +142,8 @@ namespace CodeAdvent2021
                 foreach(var cord in cords)
                 {
                     var pointsInCord = cord.Split(",").Select(x => Int32.Parse(x)).ToList();
-                    foreach(var point in pointsInCord)
-                    {
-                        pointsList.Add(point);
-                    }
+                    pointsInCord.ForEach(point => pointsList.Add(point));
+
                 }
                 lines.Add(new Line(pointsList));
             }
