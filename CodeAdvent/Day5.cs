@@ -138,11 +138,10 @@ namespace CodeAdvent2021
             foreach (var x in _data)
             {
                 List<int> pointsList = new();
-                var cords = x.Split("->");
+                var cords = x.Split(" -> ");
                 foreach(var cord in cords)
                 {
-                    var fixedCord = String.Join("", cord.Where(x => !Char.IsWhiteSpace(x)).Select(x => x).ToList());
-                    var pointsInCord = fixedCord.Split(",").Select(x => Int32.Parse(x)).ToList();
+                    var pointsInCord = cord.Split(",").Select(x => Int32.Parse(x)).ToList();
                     foreach(var point in pointsInCord)
                     {
                         pointsList.Add(point);
