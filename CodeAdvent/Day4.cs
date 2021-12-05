@@ -113,7 +113,7 @@ namespace CodeAdvent2021
         {
             for (int i = 1; i < _data!.Count; i++)
             {
-                if (_data[i].Count() == 0)
+                if (_data[i].Count() >= 1)
                 {
                     List<List<int>> bingoTable = new List<List<int>>();
                     for (int j = 0; j < 5; j++)
@@ -132,7 +132,7 @@ namespace CodeAdvent2021
         {
             foreach(var x in _orderOfNums)
             {
-                foreach(var table in _bingoTables)
+                foreach (var table in _bingoTables)
                 {
                     table.MarkValue(x);
                     if (table.CheckIfBingo())

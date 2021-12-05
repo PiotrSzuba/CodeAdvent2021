@@ -11,8 +11,7 @@ namespace CodeAdvent2021
         public List<string>? _data { get; set; } = null;
         public Day3(List<string> data)
         {
-            _data = data;
-
+            _data = data.Select(x => String.Join("",x.ToCharArray().Where(x => Char.IsLetterOrDigit(x)))).ToList();
         }
 
         private char GetLeast(string data)
@@ -41,11 +40,11 @@ namespace CodeAdvent2021
             string gamma = "";
             string epsilon = "";
 
-            string[] data = new string[12];
+            string[] data = new string[_data![0].Count()];
 
             foreach(var x in _data!)
             {
-                for(int i = 0; i < x.Count(); i++)
+                for (int i = 0; i < x.Count(); i++)
                 {
                     data[i] += x[i];
                 }

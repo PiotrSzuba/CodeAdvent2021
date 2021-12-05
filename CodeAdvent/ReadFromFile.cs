@@ -16,54 +16,10 @@ namespace CodeAdvent2021
 {
     public class ReadFromFile
     {
-        public List<string>? _data { get; set; } = null;
         public ReadFromFile() { }
-        private void Read(string path)
+        public static List<string> Read(string path)
         {
-            string[] lines;
-            try
-            {
-                lines = File.ReadAllLines(path);
-                _data = new List<string>();
-                _data = lines.ToList();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("File does not exist");
-            }
-        }
-        public List<int> GetInts(string path)
-        {
-            Read(path);
-            List<int> DataAsInts = new List<int>();
-            foreach (string line in _data!)
-            {
-                DataAsInts.Add(Int32.Parse(line));
-            }
-            return DataAsInts;
-        }
-        public List<string> GetStrings(string path)
-        {
-            Read(path);
-            return _data!;
-        }
-
-        public List<Tuple<string,int>> GetTuple(string path)
-        {
-            List<Tuple<string, int>> data = new List<Tuple<string, int>>();
-            string temp = "";
-            int value = 0;
-            Read(path);
-            foreach (var line in _data!)
-            {
-                temp = new(line.Where(Char.IsDigit).ToArray());
-                value = Int32.Parse(temp);
-
-                temp = new(line.Where(Char.IsLetter).ToArray());
-                data.Add(new(temp,value));
-            }
-            
-            return data;
+            return File.ReadAllText(path).Split('\n').ToList();
         }
 
     }

@@ -11,15 +11,9 @@ namespace CodeAdvent2021
         private int _larger { get; set; } = 0;
         private List<int>? _data { get; set; } = null;
 
-        public Day1(List<int> data) 
+        public Day1(List<string> data) 
         {
-            if(data == null)
-            {
-                Console.WriteLine("Data is null");
-                return;
-            }
-
-            _data = data;
+            _data = data.Select(x => Int32.Parse(x)).ToList();
         }
 
         public int PartA()

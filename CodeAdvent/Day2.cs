@@ -12,14 +12,25 @@ namespace CodeAdvent2021
         private int _horizontal { get; set; } = 0;
         private int _aim { get; set; } = 0;
         private List<Tuple<string, int>> _data = new List<Tuple<string, int>>();
-        public Day2(List<Tuple<string,int>> data )
+
+        public Day2(List<string> data )
         {
-            if (data == null)
+            _data = GetTuple(data);
+        }
+
+        public List<Tuple<string, int>> GetTuple(List<string> data)
+        {
+            List<Tuple<string, int>> tuple = new List<Tuple<string, int>>();
+            foreach (var line in data!)
             {
-                Console.WriteLine("Data is null");
-                return;
+                var value = Int32.Parse(line.Where(x => Char.IsDigit(x)).ToArray());
+
+                var letter = String.Join("",line.Where(x => Char.IsLetter(x)).ToArray()); 
+
+                tuple.Add(new(letter, value));
             }
-            _data = data;
+
+            return tuple;
         }
 
         public int PartA()
