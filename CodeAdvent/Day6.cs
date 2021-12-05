@@ -11,7 +11,7 @@ namespace CodeAdvent2021
         private List<string> _data { get; set; } = new();
         public Day6(List<string> data)
         {
-            _data = data; ;
+            _data = data;
         }
 
         public int PartA()
