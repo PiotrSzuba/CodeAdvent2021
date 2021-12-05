@@ -4,13 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-/// <summary>
-/// Prosty wrapper do wczytywania danych
-/// W zależności od zadania nowe metody
-/// beda sie pojawiac aby metody w innych klasach 
-/// mialy dobre dane na wejsciu
-/// </summary>
-
 
 namespace CodeAdvent2021
 {
