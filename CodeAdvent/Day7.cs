@@ -18,9 +18,8 @@ namespace CodeAdvent2021
 
         private long GetCostA(int moveTo)
         {
-            List<int> data = _data;
             int sum = 0;
-            data.ForEach(x => sum += Math.Abs(x - moveTo));
+            _data.ForEach(x => sum += Math.Abs(x - moveTo));
 
             return Convert.ToInt64(sum);
         }
@@ -29,15 +28,14 @@ namespace CodeAdvent2021
 
         private long GetCostB(int moveTo)
         {
-            List<int> data = _data;
             double sum = 0;
-            data.ForEach(x => sum += GetDistance(Math.Abs(x - moveTo)));
+            _data.ForEach(x => sum += GetDistance(Math.Abs(x - moveTo)));
 
             return Convert.ToInt64(sum);
         }
-        private long Solve(Func<int,long> func)
+        private long Solve(Func<int,long> GetCost)
         {
-            long upperBound = func(_data.Count / 2);
+            long upperBound = GetCost(_data.Count / 2);
             int lowerBound = GetAvg() / 2;
             long bestCost = int.MaxValue;
             long currentCost = 0;
@@ -47,9 +45,9 @@ namespace CodeAdvent2021
             {
                 if (i > 0)
                 {
-                    prevCost = func(i - 1);
+                    prevCost = GetCost(i - 1);
                 }
-                currentCost = func(i);
+                currentCost = GetCost(i);
                 if (currentCost > prevCost)
                 {
                     break;
