@@ -23,5 +23,8 @@ Console.WriteLine("Day6 A: {0} B: {1}", day6.PartA(), day6.PartB());
 Day7 day7 = new(ReadFromFile.Read(@"Day7B.txt"));
 Console.WriteLine("Day7 A: {0} B: {1}", day7.PartA(), day7.PartB());
 
+Day8 day8 = new(ReadFromFile.Read(@"Day8B.txt"));
+Console.WriteLine("Day7 A: {0} B: {1}", day8.PartA(), day8.PartB());
+
 Console.WriteLine("\nPress anything to exit");
 Console.ReadKey();
