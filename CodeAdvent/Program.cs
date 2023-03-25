@@ -1,5 +1,7 @@
 ﻿using CodeAdvent2021;
 using System;
+using System.Reflection;
+
 //https://adventofcode.com/
 
 Day1 day1 = new(ReadFromFile.Read(@"Day1A.txt"));
@@ -24,7 +26,19 @@ Day7 day7 = new(ReadFromFile.Read(@"Day7B.txt"));
 Console.WriteLine("Day7 A: {0} B: {1}", day7.PartA(), day7.PartB());
 
 Day8 day8 = new(ReadFromFile.Read(@"Day8B.txt"));
-Console.WriteLine("Day7 A: {0} B: {1}", day8.PartA(), day8.PartB());
+Console.WriteLine("Day8 A: {0} B: {1}", day8.PartA(), day8.PartB());
+
+Day9 day9 = new(ReadFromFile.Read(@"Day9B.txt"));
+Console.WriteLine("Day10 A: {0} B: {1}", day9.PartA(), day9.PartB());
+
+Day10 day10 = new(ReadFromFile.Read(@"Day10B.txt"));
+Console.WriteLine("Day10 A: {0} B: {1}", day10.PartA(), day10.PartB());
+
+Day11 day11 = new(ReadFromFile.Read(@"Day11B.txt"));
+Console.WriteLine("Day11 A: {0} B: {1}", day11.PartA(), day11.PartB());
+
+Day12 day12 = new(ReadFromFile.Read(@"Day12A.txt"));
+Console.WriteLine("Day12 A: {0} B: {1}", day12.PartA(), day12.PartB());
 
 Console.WriteLine("\nPress anything to exit");
 Console.ReadKey();
